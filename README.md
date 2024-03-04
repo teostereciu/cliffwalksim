@@ -52,7 +52,7 @@ You can add RL agents by inheriting from the `TabularAgent` abstract base class 
 
 `MetricsTracker` is an object that you can use to record metrics of the reinforcement learning agents. Currently, it provides functionality for keeping track of the sample mean and variance of the return over time (per episode) for each agent. This can naturally be extended to record the mean and variance of any value over time. There is also a `plot` function you can use to plot the saved data.
 
-`MetricsTracker` can be used as follows: Suppose an agent with name `agent_id` received `return` after an episode has finished, then you can record the reward as follows:
+`MetricsTracker` can be used as follows: Suppose an agent with name `agent_id` received `return` after an episode has finished, then you can record the return as follows:
 ```
 tracker = MetricksTracker()
 tracker.record_return(agent_id, return)
@@ -61,6 +61,6 @@ At the end you can plot the results using:
 ```
 tracker.plot()
 ```
-which will give a plot showing the average reward over time (with variance) for each agent.
+which will give a plot showing the average return over time (with variance) for each agent.
 
 You are free to modify `MetricksTracker` to suit your needs.
