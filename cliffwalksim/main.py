@@ -5,7 +5,7 @@ from cliffwalksim.agents.agentfactory import AgentFactory
 from cliffwalksim.util.metricstracker import MetricsTracker
 
 
-def env_interaction(env_str: str, agent_type: str, metrics_tracker: MetricsTracker, time_steps: int = 1000) -> None:
+def env_interaction(env_str: str, agent_type: str, time_steps: int = 1000) -> None:
     env = gym.make(env_str, render_mode='human')
     obs, info = env.reset()
     agent = AgentFactory.create_agent(agent_type, env=env)
@@ -26,6 +26,4 @@ def env_interaction(env_str: str, agent_type: str, metrics_tracker: MetricsTrack
 
 
 if __name__ == "__main__":
-    tracker = MetricsTracker()  # For recording returns.
-    env_interaction("CliffWalking-v0", 'RANDOM', tracker, 20)
-    tracker.plot()
+    env_interaction("CliffWalking-v0", 'RANDOM', 20)
