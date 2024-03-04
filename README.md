@@ -1,6 +1,6 @@
 <br />
 <p align="center">
-  <h1 align="center">Assignment 3 Reinforcement Learning</h1>
+  <h1 align="center">Reinforcement Learning</h1>
 
   <p align="center">
   </p>
@@ -8,7 +8,7 @@
 
 ## About
 This project contains skeleton code and a virtual environment to help you get started on the programming of reinforcement learning agents.
-The project contains one module `cliffwalksim` in which you can add your code. You are free to add more modules but for the programming of the simulation that should not be necessary.
+The project contains one package `cliffwalksim` in which you can add your code. You are free to add more packages and modules but for the programming of the simulation that should not be necessary.
 You are also free to change the project structure to use a convention you prefer. The one provided is the default project structure from `poetry`. 
 
 ## Getting started
@@ -48,10 +48,11 @@ You can add here some description on how to run the project (which file to run f
 ### Agent Creation
 You can add RL agents by inheriting from the `TabularAgent` abstract base class and adjusting the `AgentFactory` class.
 
-### metrickstracker
+### Metrics Tracking
 
-`MetricsTracker` is an object that you can use to record metrics of the reinforcement learning agents. Currently it provides functionality for keeping track of the sample mean and variance of the rewards over time for each agent. There is also a `plot` function you can use to plot the saved data.
-You can use `MetricsTracker` as follows: Suppose an agent with name `agent_id` received `return` after the current time step. Then you can record the reward as follows:
+`MetricsTracker` is an object that you can use to record metrics of the reinforcement learning agents. Currently, it provides functionality for keeping track of the sample mean and variance of the return over time (per episode) for each agent. This can naturally be extended to record the mean and variance of any value over time. There is also a `plot` function you can use to plot the saved data.
+
+`MetricsTracker` can be used as follows: Suppose an agent with name `agent_id` received `return` after an episode has finished, then you can record the reward as follows:
 ```
 tracker = MetricksTracker()
 tracker.record_return(agent_id, return)

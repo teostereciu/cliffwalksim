@@ -25,39 +25,30 @@ class MetricsTracker:
         self._return_aggr = Welford()
         self._return_history: Dict[str, tuple] = defaultdict(lambda: ([], []))
 
-    def to_csv(self, filename: str) -> None:
-        """
-        Write the metrics to a csv file.
-
-        :param filename: The name of the csv file.
-        """
-        # You can implement this if you want.
-        pass
-
     def plot(self, x_axis_label='Episodes', y_axis_label='Average Return', title="Return History") -> None:
         """
         Plot the metrics to a matplotlib figure.
         """
         with self._lock:
-            fig, axes = plt.subplots(nrows=1, ncols=1, figsize=(10, 8))
+            fig, ax = plt.subplots(figsize=(10, 8))
 
             for agent_id, (mean_returns, var_returns) in self._return_history.items():
                 x_return = np.linspace(0, len(mean_returns), len(mean_returns), endpoint=False)
-                axes.plot(x_return, mean_returns, label=f'{agent_id}')
-                axes.fill_between(x_return,
-                                  mean_returns - np.sqrt(var_returns) * 0.1,
-                                  mean_returns + np.sqrt(var_returns) * 0.1,
-                                  alpha=0.2)
+                ax.plot(x_return, mean_returns, label=f'{agent_id} agent')
+                ax.fill_between(x_return,
+                                mean_returns - np.sqrt(var_returns) * 0.1,
+                                mean_returns + np.sqrt(var_returns) * 0.1,
+                                alpha=0.2)
 
-            axes.set_title(title)
-            axes.set_xlabel(x_axis_label)
-            axes.set_ylabel(y_axis_label)
-            axes.legend()
-            axes.grid(True)
+            ax.set_title(title)
+            ax.set_xlabel(x_axis_label)
+            ax.set_ylabel(y_axis_label)
+            ax.legend()
+            ax.grid(True)
 
             plt.tight_layout()
-            plt.savefig('result.png')
             plt.show()
+            plt.savefig('../plots/result.png')
 
     def record_return(self, agent_id: str, return_val: Union[float, int, SupportsFloat]) -> None:
         """

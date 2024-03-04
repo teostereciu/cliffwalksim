@@ -14,6 +14,10 @@ class TabularAgent(ABC):
         Agent Base Class constructor.
         Assumes discrete gymnasium spaces.
         You may want to make these attributes private.
+        :param state_space: state space of gymnasium environment.
+        :param action_space: action space of gymnasium environment.
+        :param learning_rate: of the underlying algorithm.
+        :param discount_rate: discount factor (`gamma`).
         """
         self.q_table = np.zeros([state_space.n, action_space.n])
         self.env_action_space = action_space

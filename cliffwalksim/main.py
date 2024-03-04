@@ -15,8 +15,6 @@ def env_interaction(env_str: str, agent_type: str, metrics_tracker: MetricsTrack
         action = agent.policy(obs)
         obs, reward, terminated, truncated, info = env.step(action)
 
-        print("reward ->", reward)
-
         agent.update((old_obs, action, reward, obs))
 
         if terminated or truncated:
