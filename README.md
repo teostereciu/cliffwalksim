@@ -15,11 +15,28 @@ You are also free to change the project structure to use a convention you prefer
 
 ### Prerequisites
 
+- [GCC](https://gcc.gnu.org/) (a C++ compiler).
+- [Swig](https://swig.org/).
 - [Poetry](https://python-poetry.org/).
+
+The first two dependencies are required because it is a dependency of `box2d-py` which some gymnasium environments use to render the environment.
+
+## Installing GCC and Swig
+
+GCC stands for the GNU Compiler Collection and includes compilers for C and C++. To install GCC (assuming a Debian-based Linux distribution like Ubuntu)
+```
+apt-get install build-essential
+```
+For `swig`:
+```
+apt-get install swig
+```
 
 ## Running
 <!--
 -->
+
+#### Setting up a virtual environment
 
 You can also setup a virtual environment using Poetry. Poetry can  be installed using `pip`:
 ```
@@ -40,6 +57,11 @@ If you want to add dependencies to the project then you can simply do
 ```
 poetry add <package_name>
 ```
+
+#### Running the docker container
+
+Instead of running locally you can also run the program inside a container using docker. A `docker-compose.yaml` file is provided which you can use to run the container using `docker compose up --build`.
+
 ## Usage
 You can add here some description on how to run the project (which file to run for example).
 

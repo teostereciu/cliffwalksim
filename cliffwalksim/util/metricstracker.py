@@ -5,7 +5,7 @@ from collections import defaultdict
 import numpy as np
 from matplotlib import pyplot as plt
 
-from cliffwalksim.util.welford import Welford
+from welford import Welford
 
 
 class MetricsTracker:
@@ -86,7 +86,7 @@ class MetricsTracker:
             self._return_history.clear()
 
     @property
-    def return_history(self) -> Dict[str, Tuple[List[Union[float, int]], List[Union[float, int]]]]:
+    def return_history(self) -> dict[str, tuple]:
         """
         Get the history of return values for all agents.
 

@@ -1,8 +1,7 @@
 import gymnasium as gym
 
-from cliffwalksim.agents.tabularagent import TabularAgent
-
 from cliffwalksim.agents.randomagent import RandomAgent
+from cliffwalksim.agents.tabularagent import TabularAgent
 
 
 class AgentFactory:

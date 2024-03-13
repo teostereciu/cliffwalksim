@@ -28,7 +28,7 @@ class TabularAgent(ABC):
     def update(self, trajectory: tuple) -> None:
         """
         Where the update rule is applied
-        :param trajectory: (S, A, S, R) (Q-learning), (S, A, S, R, A) (SARSA).
+        :param trajectory: (S, A, R, S') (Q-learning), (S, A, R, S', A') (SARSA).
         """
         pass
 

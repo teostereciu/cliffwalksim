@@ -1,8 +1,6 @@
 import gymnasium as gym
-import numpy as np
 
-from cliffwalksim.agents.agentfactory import AgentFactory
-from cliffwalksim.util.metricstracker import MetricsTracker
+from agents.agentfactory import AgentFactory
 
 
 def env_interaction(env_str: str, agent_type: str, time_steps: int = 1000) -> None:
@@ -23,6 +21,7 @@ def env_interaction(env_str: str, agent_type: str, time_steps: int = 1000) -> No
             break
 
     env.close()
+    print("HI")
 
 
 if __name__ == "__main__":
