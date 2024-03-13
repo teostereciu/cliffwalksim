@@ -21,7 +21,6 @@ def env_interaction(env_str: str, agent_type: str, time_steps: int = 1000) -> No
             break
 
     env.close()
-    print("HI")
 
 
 if __name__ == "__main__":
