@@ -23,7 +23,7 @@ The first two dependencies are required because it is a dependency of `box2d-py`
 
 ## Installing GCC and Swig
 
-GCC stands for the GNU Compiler Collection and includes compilers for C and C++. To install GCC (assuming a Debian-based Linux distribution like Ubuntu)
+GCC stands for the GNU Compiler Collection and includes compilers for C and C++. To install GCC (assuming a Debian-based Linux distribution like Ubuntu):
 ```
 apt-get install build-essential
 ```

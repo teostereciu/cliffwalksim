@@ -11,6 +11,9 @@ RUN apt-get update && \
 RUN apt-get update && apt-get install -y swig
 RUN apt-get install -y tree
 
+# Install dependencies for rendering graphics
+RUN apt-get install -y xvfb x11-utils
+
 # Copy the entire project code to the container
 COPY . .
 RUN rm -rf /app/.venv   # Except this
