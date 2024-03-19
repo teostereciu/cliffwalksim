@@ -1,6 +1,9 @@
 import gymnasium as gym
 
+from cliffwalksim.agents.qlearningagent import QLearningAgent
+from cliffwalksim.agents.doubleqlearningagent import DoubleQLearningAgent
 from cliffwalksim.agents.randomagent import RandomAgent
+from cliffwalksim.agents.sarsaagent import SARSAAgent
 from cliffwalksim.agents.tabularagent import TabularAgent
 
 
@@ -22,11 +25,11 @@ class AgentFactory:
         action_space = env.action_space
 
         if agent_type == "SARSA":
-            return RandomAgent(obs_space, action_space)    # CHANGE THIS
+            return SARSAAgent(obs_space, action_space)    
         elif agent_type == "Q-LEARNING":
-            return RandomAgent(obs_space, action_space)
+            return QLearningAgent(obs_space, action_space)
         elif agent_type == "DOUBLE-Q-LEARNING":
-            return RandomAgent(obs_space, action_space)
+            return DoubleQLearningAgent(obs_space, action_space)
         elif agent_type == "RANDOM":
             return RandomAgent(obs_space, action_space)
 
